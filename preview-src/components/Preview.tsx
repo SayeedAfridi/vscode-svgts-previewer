@@ -1,15 +1,16 @@
-import { h, FunctionalComponent, Ref, JSX } from 'preact'
+import { h, FunctionalComponent, Ref, JSX } from "preact";
 
-import { ISettings } from '../store/IState'
+import { ISettings } from "../store/IState";
 
 interface PreviewProps {
   data: string;
   settings: ISettings;
   attachRef: Ref<HTMLImageElement>;
-  dimension: { width: number, height: number, units: string };
+  dimension: { width: number; height: number; units: string };
   onWheel: JSX.WheelEventHandler<EventTarget>;
   background: string;
   showTransparencyGrid: boolean;
+  svg?: string;
 }
 
 const Preview: FunctionalComponent<PreviewProps> = ({
@@ -19,24 +20,31 @@ const Preview: FunctionalComponent<PreviewProps> = ({
   onWheel,
   background,
   settings,
-  showTransparencyGrid
+  showTransparencyGrid,
+  svg,
 }) => {
   const styles = {
     width: `${width}${units}`,
     minWidth: `${width}${units}`,
     height: `${height}${units}`,
-    minHeight: `${height}${units}`
-  }
+    minHeight: `${height}${units}`,
+  };
+
   return (
-    <div className={`preview ${background} ${settings.showBoundingBox ? 'bounding-box' : ''} ${showTransparencyGrid ? 'transparency-grid' : ''}`} onWheel={onWheel}>
+    <div
+      className={`preview ${background} ${
+        settings.showBoundingBox ? "bounding-box" : ""
+      } ${showTransparencyGrid ? "transparency-grid" : ""}`}
+      onWheel={onWheel}
+    >
       <img
-        src={`data:image/svg+xml,${encodeURIComponent(data)}`}
+        src={`data:image/svg+xml,${encodeURIComponent(svg ?? data)}`}
         ref={attachRef}
         style={styles}
-        alt=''
+        alt=""
       />
     </div>
-  )
-}
+  );
+};
 
-export default Preview
+export default Preview;

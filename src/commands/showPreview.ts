@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
 import TelemetryReporter from 'vscode-extension-telemetry'
 
-import { isSvgUri } from '../utils'
+import { isSvgr, isSvgUri } from '../utils'
 import { Command } from '../commandManager'
 import { PreviewManager } from '../features/previewManager'
 import { TelemetryEvents } from '../telemetry'
@@ -19,6 +19,8 @@ abstract class PreviewCommand {
   protected showPreview (webviewManager: PreviewManager, uri: vscode.Uri, viewColumn: vscode.ViewColumn): void {
     if (isSvgUri(uri)) {
       webviewManager.showPreview(uri, viewColumn)
+    } else if(isSvgr(uri)) {
+      webviewManager.showPreview(uri, vscode.ViewColumn.Two, isSvgr(uri));
     }
   }
 

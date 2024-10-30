@@ -160,6 +160,7 @@ class PreviewContainer extends Component<PreviewContainerProps, PreviewContainer
       ? <PreviewError />
       : (
         <Preview
+          svg={this.props.source.svg}
           data={this.props.source.data}
           attachRef={this.attachRef}
           dimension={this.getScaledDimension()}

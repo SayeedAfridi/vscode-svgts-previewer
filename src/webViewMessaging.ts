@@ -6,6 +6,7 @@ export interface IMessage {
 export interface IUpdatePreviewPayload {
     uri: string;
     data: string;
+    svg?: string;
     settings: object;
 }
 

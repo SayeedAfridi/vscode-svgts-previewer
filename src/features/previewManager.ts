@@ -27,9 +27,9 @@ export class PreviewManager implements vscode.WebviewPanelSerializer {
     }
   }
 
-  public async showPreview (uri: vscode.Uri, viewColumn: vscode.ViewColumn) {
+  public async showPreview (uri: vscode.Uri, viewColumn: vscode.ViewColumn, isSvgr?: boolean) {
     const preview = this.getPreviewOnTargetColumn(viewColumn) || await this.createPreview(uri, viewColumn)
-    preview.update(uri)
+    preview.update(uri, isSvgr)
     preview.panel.reveal(preview.panel.viewColumn)
   }
 
