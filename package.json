@@ -3,7 +3,7 @@
     "displayName": "SVG and SVGR Previewer",
     "description": "Show SVG and SVGR preview to the side panel",
     "version": "0.7.0",
-    "publisher": "vitaliymaz",
+    "publisher": "Syfe",
     "repository": "https://github.com/SayeedAfridi/vscode-svgts-previewer",
     "icon": "logo.png",
     "engines": {
@@ -102,9 +102,9 @@
             ],
             "editor/context": [
                 {
-                "when": "resourceLangId == javascript || resourceLangId == javascriptreact || resourceLangId == typescript || resourceLangId == typescriptreact",
-                "command": "svg.showPreview",
-                "group": "navigation"
+                    "when": "resourceLangId == javascript || resourceLangId == javascriptreact || resourceLangId == typescript || resourceLangId == typescriptreact",
+                    "command": "svg.showPreview",
+                    "group": "navigation"
                 }
             ]
         },
@@ -161,7 +161,7 @@
         "ts-loader": "^5.4.5",
         "typescript": "^3.9.7",
         "vscode-test": "^1.4.1",
-        "webpack": "^4.46.0",
+        "webpack": "^4.47.0",
         "webpack-cli": "^3.3.12"
     },
     "dependencies": {

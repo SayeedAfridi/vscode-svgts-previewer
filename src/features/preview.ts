@@ -12,7 +12,7 @@ import {
   TELEMETRY_EVENT_TOGGLE_BOUNDING_BOX,
   TELEMETRY_EVENT_TOGGLE_TRANSPARENCY_GRID,
 } from "../telemetry/events";
-import { getOnlySvgString, logMsg } from "../utils";
+import { getOnlySvgString } from "../utils";
 
 const localize = nls.loadMessageBundle();
 
